@@ -1,12 +1,13 @@
 "use client";
 
+import { memo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useAppDispatch } from "@/lib/hooks/store";
 import { removeFromCart, setQuantity } from "@/lib/actions/cart";
 import type { CartItem } from "@/lib/types/cart";
 
-export default function CartLineItem({ item }: { item: CartItem }) {
+function CartLineItem({ item }: { item: CartItem }) {
   const dispatch = useAppDispatch();
 
   return (
@@ -72,3 +73,5 @@ export default function CartLineItem({ item }: { item: CartItem }) {
     </li>
   );
 }
+
+export default memo(CartLineItem);
