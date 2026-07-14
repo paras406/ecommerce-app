@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Rating from "./Rating";
-import type { Product } from "@/lib/types";
+import type { Product } from "@/lib/types/product";
 
 export default function ProductCard({
   product,

@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useAppDispatch } from "@/lib/hooks";
-import { addToCart } from "@/lib/cartSlice";
-import type { Product } from "@/lib/types";
+import { useAppDispatch } from "@/lib/hooks/store";
+import { addToCart } from "@/lib/actions/cart";
+import type { Product } from "@/lib/types/product";
 
 export default function AddToCartButton({ product }: { product: Product }) {
   const dispatch = useAppDispatch();

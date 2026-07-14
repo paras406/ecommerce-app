@@ -2,13 +2,13 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks/store";
 import {
   selectCartCount,
   selectCartItems,
   selectCartTotal,
 } from "@/lib/store";
-import { clearCart } from "@/lib/cartSlice";
+import { clearCart } from "@/lib/actions/cart";
 import CartLineItem from "./CartLineItem";
 
 export default function CartPage() {

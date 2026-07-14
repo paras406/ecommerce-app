@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useAppSelector } from "@/lib/hooks";
+import { useAppSelector } from "@/lib/hooks/store";
 import { selectCartCount } from "@/lib/store";
 
 function CartBadge() {

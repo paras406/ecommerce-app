@@ -1,6 +1,6 @@
-import type { AppStore } from "./store";
-import { hydrateCart } from "./cartSlice";
-import type { CartItem } from "./types";
+import type { AppStore } from "@/lib/store";
+import { hydrateCart } from "@/lib/actions/cart";
+import type { CartItem } from "@/lib/types/cart";
 
 const STORAGE_KEY = "ecommerce-cart";
 

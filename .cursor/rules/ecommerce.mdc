@@ -7,7 +7,7 @@ alwaysApply: true
 
 ## Stack
 - React + Next.js (App Router)
-- Redux Toolkit for client state (cart, UI); keep server data in RSC/fetch where possible
+- Redux + redux-thunk for client state (cart, UI); keep server data in RSC/fetch where possible
 - tailwind css for css
 - Do not access the Redux store from Server Components
 

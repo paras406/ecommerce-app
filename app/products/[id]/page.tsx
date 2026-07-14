@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Rating from "@/components/Rating";
 import AddToCartButton from "@/components/AddToCartButton";
-import { getProduct } from "@/lib/api";
+import { getProduct } from "@/lib/api/products";
 
 type Props = {
   params: Promise<{ id: string }>;

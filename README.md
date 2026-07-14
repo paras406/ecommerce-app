@@ -30,7 +30,7 @@ A sticky header shows the site name, Home/Cart navigation, and a cart icon with 
 ## Thought process
 
 - **Server data in Server Components.** The product list and detail pages are React Server Components that fetch from DummyJSON on the server with ISR (`revalidate: 300`). Content is in the first HTML response, which helps LCP/FCP, SEO, and deeplinks/refreshes — no client-side data fetching for primary content.
-- **Redux Toolkit for client state only.** The cart is the only truly client-side state, held in a Redux store created per-request via a client `StoreProvider`. Server Components never touch the store.
+- **Redux (+ redux-thunk) for client state only.** The cart is the only truly client-side state, held in a Redux store created per-request via a client `StoreProvider`. Async work can use thunks; Server Components never touch the store.
 - **Cart persistence.** A small subscriber writes cart changes to `localStorage` and rehydrates on load — no extra dependency. Cart UI (badge, cart page) renders after mount to avoid SSR hydration mismatches, since the server can't know localStorage contents.
 - **Component structure.** Shared UI (`Header`, `ProductCard`, `Rating`, `AddToCartButton`, `StoreProvider`) lives in `components/`; route-specific pieces (e.g. `CartLineItem`) sit next to their route.
 - **Performance details.** `next/image` everywhere (first grid row gets `priority` as the likely LCP element, the rest lazy-load), `next/font` for fonts, `preconnect` to the DummyJSON CDN, and effect/subscription cleanup to avoid leaks.

@@ -1,17 +1,24 @@
-import { configureStore } from "@reduxjs/toolkit";
-import cartReducer from "./cartSlice";
-import type { CartItem } from "./types";
+import {
+  combineReducers,
+  applyMiddleware,
+  legacy_createStore as createStore,
+} from "redux";
+import { thunk, type ThunkDispatch } from "redux-thunk";
+import type { UnknownAction } from "redux";
+import cartReducer, { type CartState } from "@/lib/reducers/cart";
+import type { CartItem } from "@/lib/types/cart";
 
-export const makeStore = () =>
-  configureStore({
-    reducer: {
-      cart: cartReducer,
-    },
-  });
+const rootReducer = combineReducers({
+  cart: cartReducer,
+});
+
+export const makeStore = () => createStore(rootReducer, applyMiddleware(thunk));
 
 export type AppStore = ReturnType<typeof makeStore>;
-export type RootState = ReturnType<AppStore["getState"]>;
-export type AppDispatch = AppStore["dispatch"];
+export type RootState = {
+  cart: CartState;
+};
+export type AppDispatch = ThunkDispatch<RootState, undefined, UnknownAction>;
 
 export const selectCartItems = (state: RootState): CartItem[] => state.cart.items;
 

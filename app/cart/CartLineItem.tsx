@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useAppDispatch } from "@/lib/hooks";
-import { removeFromCart, setQuantity } from "@/lib/cartSlice";
-import type { CartItem } from "@/lib/types";
+import { useAppDispatch } from "@/lib/hooks/store";
+import { removeFromCart, setQuantity } from "@/lib/actions/cart";
+import type { CartItem } from "@/lib/types/cart";
 
 export default function CartLineItem({ item }: { item: CartItem }) {
   const dispatch = useAppDispatch();

@@ -1,5 +1,5 @@
 import ProductCard from "@/components/ProductCard";
-import { getProducts } from "@/lib/api";
+import { getProducts } from "@/lib/api/home";
 
 // First row of cards is likely the LCP element; give those images priority.
 const PRIORITY_IMAGE_COUNT = 4;
