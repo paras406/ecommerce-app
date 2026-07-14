@@ -1,0 +1,26 @@
+---
+description: Rules for ecommerce
+alwaysApply: true
+---
+
+# Rules for Ecommerce App
+
+## Stack
+- React + Next.js (App Router)
+- Redux Toolkit for client state (cart, UI); keep server data in RSC/fetch where possible
+- tailwind css for css
+- Do not access the Redux store from Server Components
+
+## Structure
+- Put shared/reusable UI in a common components directory
+- Keep route-specific components next to their route
+
+## Performance
+- Optimize for LCP, CLS, FCP, TTFB, and INP
+- Avoid memory leaks (effect cleanup, unsubscribe listeners, abort fetches)
+
+## Workflow
+- For non-trivial work: clarify requirements first; do not assume product or UX details
+- Present a short plan and wait for my approval before writing code
+- Implement in small steps; pause for approval between steps when the change is large or risky
+- For small, unambiguous tasks (typos, one-line fixes), skip planning and just do it
